@@ -85,7 +85,7 @@ function DesktopNavbar() {
     )
 }
 
-function NavbarItem({ link, label }: {
+function NavbarItem({ link, label, clickCallback }: {
     link: string,
     label: string,
     clickCallback?: () => void;
@@ -97,7 +97,10 @@ function NavbarItem({ link, label }: {
             buttonVariants({ variant: "ghost" }),
             "w-full justify-start text-lg text-muted-foreground hover:text-foreground",
             isActive && "text-foreground"
-        )}>{label}</Link>
+        )}
+            onClick={() => { if (clickCallback) clickCallback() }}
+
+        >{label}</Link>
         {
             isActive && (
                 <div className='absolute -bottom-[2px] left-1/2 hidden h-[2px] w-[80%] -translate-x-1/2 rounded-xl bg-foreground md:block' />
