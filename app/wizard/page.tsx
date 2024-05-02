@@ -1,6 +1,10 @@
-import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { CurrencyComboBox } from '@/components/CurrencyComboBox';
+import Logo from '@/components/Logo';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { currentUser } from '@clerk/nextjs/server';
 import { Separator } from '@radix-ui/react-dropdown-menu';
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from 'react'
 
@@ -28,6 +32,16 @@ async function page() {
                         <CardTitle>Currency</CardTitle>
                         <CardDescription>Set your default currency for transactions</CardDescription>
                     </CardHeader>
+                    <CardContent>
+                        <CurrencyComboBox/>
+                    </CardContent>
+                    <Separator />
+                    <Button className='w-full' asChild>
+                        <Link href={"/"}>Iapos;m done! Take me to the dashboard</Link>
+                    </Button>
+                    <div className='mt-8'>
+                        <Logo />
+                    </div>
                 </Card>
             </div>
         </div>
