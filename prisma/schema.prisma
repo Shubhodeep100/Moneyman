@@ -56,7 +56,6 @@ model MonthHistory {
 
 model YearHistory {
   userId  String
-  day     Int
   month   Int
   year    Int
   income  Float
