@@ -75,6 +75,7 @@ const config = {
     },
     fontFamily: {
       signature: ["Lugrasimo"],
+      name: ["EB Garamond"]
     },
   },
   plugins: [require("tailwindcss-animate")],
