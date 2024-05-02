@@ -36,4 +36,9 @@ model Transaction {
   amount      Float
   description String
   date        DateTime
+  userId      String
+  type        String   @default("income")
+
+  category     String
+  categoryIcon String
 }
