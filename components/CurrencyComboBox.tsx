@@ -36,8 +36,8 @@ export function CurrencyComboBox() {
         return (
             <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild>
-                    <Button variant="outline" className="w-[150px] justify-start">
-                        {selectedOption ? <>{selectedOption.label}</> : <>+ Set status</>}
+                    <Button variant="outline" className="w-full justify-start">
+                        {selectedOption ? <>{selectedOption.label}</> : <>Set currency</>}
                     </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-[200px] p-0" align="start">
@@ -50,8 +50,8 @@ export function CurrencyComboBox() {
     return (
         <Drawer open={open} onOpenChange={setOpen}>
             <DrawerTrigger asChild>
-                <Button variant="outline" className="w-[150px] justify-start">
-                    {selectedOption ? <>{selectedOption.label}</> : <>+ Set status</>}
+                <Button variant="outline" className="w-full justify-start">
+                    {selectedOption ? <>{selectedOption.label}</> : <>Set currency</>}
                 </Button>
             </DrawerTrigger>
             <DrawerContent>
