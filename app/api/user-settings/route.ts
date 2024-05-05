@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function GET(request: Request) {
@@ -24,5 +25,7 @@ export async function GET(request: Request) {
     });
   }
 
+  //   Revalidate the home page that uses the currency.(Caching feature)
+  revalidatePath("/");
   return Response.json(userSettings);
 }
