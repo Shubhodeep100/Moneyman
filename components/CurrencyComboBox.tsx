@@ -29,7 +29,7 @@ import { useQuery } from "@tanstack/react-query"
 export function CurrencyComboBox() {
     const [open, setOpen] = React.useState(false)
     const isDesktop = useMediaQuery("(min-width: 768px)")
-    const [selectedOption, setSelectedOption] = React.useState<Currency | null>(
+    const [selectedOption, setSelectedOption] = React.useState<Currency | null> (
         null
     )
 
