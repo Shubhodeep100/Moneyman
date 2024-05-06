@@ -45,6 +45,7 @@ export function CurrencyComboBox() {
         const userCurrency = Currencies.find(
             (currency) => currency.value === userSettings.data.currency
         )
+        if (userCurrency) setSelectedOption(userCurrency);
     }, [userSettings.data])
 
 
