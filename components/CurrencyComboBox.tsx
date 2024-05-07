@@ -53,6 +53,12 @@ export function CurrencyComboBox() {
         mutationFn: UpdateUserCurrency,
     })
 
+    const selectOption = (value: Currency | null) => {
+        if(!value) {
+            
+        }
+    }
+
 
     if (isDesktop) {
         return (
