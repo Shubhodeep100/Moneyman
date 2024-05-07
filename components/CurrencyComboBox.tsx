@@ -27,6 +27,7 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import SkeletonWrapper from "./SkeletonWrapper"
 import { UserSettings } from "@prisma/client"
 import { UpdateUserCurrency } from "@/app/wizard/_actions/userSettings"
+import { toast } from "sonner"
 
 
 export function CurrencyComboBox() {
@@ -54,9 +55,14 @@ export function CurrencyComboBox() {
     })
 
     const selectOption = (value: Currency | null) => {
-        if(!value) {
-            
+        if (!value) {
+            toast.error("Please select a currency")
+            return;
         }
+
+        toast.loading("Updating currency...", {
+            id: "update-currency",
+        });
     }
 
 
