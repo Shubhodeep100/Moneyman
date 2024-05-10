@@ -81,7 +81,7 @@ export function CurrencyComboBox() {
                         </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-[200px] p-0" align="start">
-                        <OptionList setOpen={setOpen} setSelectedOption={setSelectedOption} />
+                        <OptionList setOpen={setOpen} setSelectedOption={selectOption} />
                     </PopoverContent>
                 </Popover>
             </SkeletonWrapper>
@@ -98,7 +98,7 @@ export function CurrencyComboBox() {
                 </DrawerTrigger>
                 <DrawerContent>
                     <div className="mt-4 border-t">
-                        <OptionList setOpen={setOpen} setSelectedOption={setSelectedOption} />
+                        <OptionList setOpen={setOpen} setSelectedOption={selectOption} />
                     </div>
                 </DrawerContent>
             </Drawer>
