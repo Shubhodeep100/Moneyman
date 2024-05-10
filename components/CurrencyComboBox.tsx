@@ -54,18 +54,21 @@ export function CurrencyComboBox() {
         mutationFn: UpdateUserCurrency,
     })
 
-    const selectOption = (currency: Currency | null) => {
-        if (!currency) {
-            toast.error("Please select a currency")
-            return;
-        }
+    const selectOption = React.useCallback(
+        (currency: Currency | null) => {
+            if (!currency) {
+                toast.error("Please select a currency")
+                return;
+            }
 
-        toast.loading("Updating currency...", {
-            id: "update-currency",
-        });
+            toast.loading("Updating currency...", {
+                id: "update-currency",
+            });
 
-        mutation.mutate(currency.value);
-    }
+            mutation.mutate(currency.value);
+        },
+        [mutation]
+    );
 
 
     if (isDesktop) {
