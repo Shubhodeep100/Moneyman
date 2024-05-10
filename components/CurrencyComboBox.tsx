@@ -52,6 +52,18 @@ export function CurrencyComboBox() {
 
     const mutation = useMutation({
         mutationFn: UpdateUserCurrency,
+        onSuccess: (data: UserSettings) => {
+            toast.success(`Currency updated successfully 🎉`, {
+                id: "update-currency-success",
+            });
+
+            setSelectedOption(Currencies.find((c) => c.value === data.currency) || null);
+        },
+        onError: () => {
+            toast.error("Something went wrong", {
+                id: "update-cuurency",
+            })
+        }
     })
 
     const selectOption = React.useCallback(
