@@ -54,8 +54,8 @@ export function CurrencyComboBox() {
         mutationFn: UpdateUserCurrency,
     })
 
-    const selectOption = (value: Currency | null) => {
-        if (!value) {
+    const selectOption = (currency: Currency | null) => {
+        if (!currency) {
             toast.error("Please select a currency")
             return;
         }
@@ -63,6 +63,8 @@ export function CurrencyComboBox() {
         toast.loading("Updating currency...", {
             id: "update-currency",
         });
+
+        mutation.mutate(currency.value);
     }
 
 
