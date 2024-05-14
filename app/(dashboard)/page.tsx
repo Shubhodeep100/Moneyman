@@ -1,3 +1,4 @@
+import prisma from '@/lib/prisma';
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import React from 'react'
@@ -7,6 +8,12 @@ async function page() {
   if (!user) {
     redirect('/sign-in');
   }
+
+  const userSettings = await prisma.userSettings.findUnique({
+    where: {
+      userId: user.id,
+    }
+  })
   return (
     <div className='h-screen flex justify-center items-center'>
       This is The Dashboard.
