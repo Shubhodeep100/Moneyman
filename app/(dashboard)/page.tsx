@@ -30,6 +30,9 @@ async function page() {
             <Button variant={'outline'} className='border-emerald-500 bg-emerald-950 text-white hover:bg-emerald-700 hover:text-white'>
               New income 🤑
             </Button>
+            <Button variant={'outline'} className='border-rose-500 bg-rose-950 text-white hover:bg-rose-700 hover:text-white'>
+              New expense 💸
+            </Button>
           </div>
         </div>
       </div>
