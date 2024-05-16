@@ -5,4 +5,8 @@ export const CreateTransactionSchema = z.object({
   description: z.string(),
   date: z.coerce.date(),
   category: z.string(),
+  type: z.union([
+    z.literal("inconome"),
+    z.literal("expense")
+  ]),
 });
