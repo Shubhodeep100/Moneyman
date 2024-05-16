@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import prisma from '@/lib/prisma';
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
@@ -25,6 +26,11 @@ async function page() {
           <p className='text-3xl font-bold'>
             Hello, {user.firstName}! 👋🏻
           </p>
+          <div className='flex items-center gap-3'>
+            <Button variant={'outline'} className='border-emerald-500 bg-emerald-950 text-white hover:bg-emerald-700 hover:text-white'>
+              New income 🤑
+            </Button>
+          </div>
         </div>
       </div>
     </div>
