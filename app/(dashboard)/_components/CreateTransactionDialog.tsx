@@ -13,13 +13,15 @@ interface Props {
 }
 
 import React from "react"
-import { useForm } from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
+import { Form, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormControl, FormDescription, FormField, FormItem, FormLabel } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 function CreateTransactionDialog({ trigger, type }: Props) {
-    const from = useForm<CreateTrasactionScemaType>({
+    const form = useForm<CreateTrasactionScemaType>({
         resolver: zodResolver(CreateTransactionSchema),
-        defaultValues:{
+        defaultValues: {
             type,
             date: new Date(),
         }
@@ -33,6 +35,23 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                 <DialogHeader>
                     <DialogTitle>Create a new <span className={cn("m-1", type === "income" ? "text-emerald-500" : "text-red-500")}>{type}</span></DialogTitle>
                 </DialogHeader>
+                <Form {...form}>
+                    <form className="space-y-4">
+                        <FormField
+                            control={form.control}
+                            name="description"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Description</FormLabel>
+                                    <FormControl>
+                                        <Input defaultValue={""} {...field} />
+                                    </FormControl>
+                                    <FormDescription>Transaction Description (optional)</FormDescription>
+                                </FormItem>
+                            )}
+                        />
+                    </form>
+                </Form>
             </DialogContent>
         </Dialog >
     );
