@@ -3,7 +3,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/ui/dialog";
 import { TransactionType } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { CreateTransactionSchema, CreateTrasactionScemaType } from "@/schema/Transaction";
+import { CreateTransactionSchema, CreateTrasactionScemaType } from "@/schema/transaction";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { ReactNode } from "react";
 
