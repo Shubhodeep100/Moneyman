@@ -13,7 +13,7 @@ interface Props {
 }
 
 import React from "react"
-import { Form, useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormControl, FormDescription, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -25,7 +25,8 @@ function CreateTransactionDialog({ trigger, type }: Props) {
             type,
             date: new Date(),
         }
-    })
+    });
+
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -35,8 +36,8 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                 <DialogHeader>
                     <DialogTitle>Create a new <span className={cn("m-1", type === "income" ? "text-emerald-500" : "text-red-500")}>{type}</span></DialogTitle>
                 </DialogHeader>
-                <Form {...form}>
-                    <form className="space-y-4">
+                <FormProvider {...form}>
+                    <form className="space-y-4" onSubmit={form.handleSubmit((data) => console.log(data))}>
                         <FormField
                             control={form.control}
                             name="description"
@@ -44,16 +45,17 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                                 <FormItem>
                                     <FormLabel>Description</FormLabel>
                                     <FormControl>
-                                        <Input defaultValue={""} {...field} />
+                                        <Input {...field} />
                                     </FormControl>
                                     <FormDescription>Transaction Description (optional)</FormDescription>
                                 </FormItem>
                             )}
                         />
+                        <button type="submit">Submit</button>
                     </form>
-                </Form>
+                </FormProvider>
             </DialogContent>
-        </Dialog >
+        </Dialog>
     );
 }
 
